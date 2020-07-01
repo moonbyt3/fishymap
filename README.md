@@ -2,7 +2,7 @@
 
 All new features goes to separate branches
 
-` git checkout -b branch-name `
+` git checkout -b feature-name `
 
 To start developing new feature **pull master branch first** and then checkout to new branch.
 
