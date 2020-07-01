@@ -1,9 +1,11 @@
 ## :fish: FishyMap :fishing_pole_and_fish:
 
 All new features goes to separate branches
-``` git checkout -b branch-name ```
 
-To start developing new feature pull master branch first and then checkout to new branch.
+` git checkout -b branch-name `
+
+To start developing new feature **pull master branch first** and then checkout to new branch.
+
 When you finish feature make pull request.
 
 ## Scripts
