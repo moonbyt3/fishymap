@@ -60,6 +60,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: #b8b7ad;
   padding: 0.8em;
   height: auto !important;
+  text-align: center;
 }
 
 /* Individual item */
@@ -75,4 +76,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 15px;
+
+  img {
+    width: 25px;
+  }
 }
