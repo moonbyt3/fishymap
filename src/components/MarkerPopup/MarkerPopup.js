@@ -1,5 +1,5 @@
-import React from 'react';
-import {Popup} from 'react-leaflet';
+import React from 'react'
+import {Popup} from 'react-leaflet'
 
 import {
   MarkerPopupWrapper,
@@ -10,9 +10,9 @@ import {
   MarkerPopupDataItem,
   MarkerPopupDataItemTitle,
   MarkerPopupDataItemText,
-} from './MarkerPopup.css';
+} from './markerPopup.css';
 
-import FishImage from '../../assets/img/fish.png';
+import FishImage from '../../assets/img/fish.png'
 import Avatar from '../../assets/img/icons/avatar.png'
 
 const MarkerPopup = (props) => {
