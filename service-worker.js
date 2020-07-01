@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fishymap/precache-manifest.e9ecaecba0ae5de1d6099ae73354e46e.js"
+  "/fishymap/precache-manifest.50e1a21900c1577a9ec877d7c967674d.js"
 );
 
 self.addEventListener('message', (event) => {
