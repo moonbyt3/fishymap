@@ -1,32 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import data from '../assets/data';
 import Markers from './VenueMarkers';
 
-class MapView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentLocation: { lat: 44.87278, lng: 18.80833 },
-      zoom: 15,
-    };
-  }
+import useLongPress from '../helpers/longPress';
 
-  render() {
-    const { currentLocation, zoom } = this.state;
+import 'leaflet/dist/leaflet.css';
 
-    return (
-      <Map center={currentLocation} zoom={zoom}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="FishyMap"
-        />
+const alertMessage = () => {
+  return console.log('long click press');
+};
 
-        <Markers venues={data.venues} />
-      </Map>
-    );
-  }
-}
+const MapView = (props) => {
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: 44.87278,
+    lng: 18.80833,
+  });
+  const [zoom, useZoom] = useState(15);
+
+  const clickLongPress = useLongPress(alertMessage, 1000);
+
+  return (
+    <Map center={currentLocation} zoom={zoom} {...clickLongPress}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="FishyMap"
+      />
+
+      <Markers venues={data.venues} />
+    </Map>
+  );
+};
 
 export default MapView;
