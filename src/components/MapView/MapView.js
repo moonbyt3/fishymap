@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
-import data from '../assets/data';
-import Markers from './VenueMarkers';
+import data from '../../assets/data';
+import Markers from '../VenueMarkers';
 
-import useLongPress from '../helpers/longPress';
+import useLongPress from '../../helpers/longPress';
 
 import 'leaflet/dist/leaflet.css';
 
