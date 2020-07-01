@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/fishymap/static/css/main.ba57442f.chunk.css",
+    "main.js": "/fishymap/static/js/main.c2db867d.chunk.js",
+    "main.js.map": "/fishymap/static/js/main.c2db867d.chunk.js.map",
+    "runtime-main.js": "/fishymap/static/js/runtime-main.e55ccf65.js",
+    "runtime-main.js.map": "/fishymap/static/js/runtime-main.e55ccf65.js.map",
+    "static/css/2.7c35e809.chunk.css": "/fishymap/static/css/2.7c35e809.chunk.css",
+    "static/js/2.50eb0a52.chunk.js": "/fishymap/static/js/2.50eb0a52.chunk.js",
+    "static/js/2.50eb0a52.chunk.js.map": "/fishymap/static/js/2.50eb0a52.chunk.js.map",
+    "index.html": "/fishymap/index.html",
+    "precache-manifest.f2b27aed4a7c4ecf86c8bb3bdc0ee82e.js": "/fishymap/precache-manifest.f2b27aed4a7c4ecf86c8bb3bdc0ee82e.js",
+    "service-worker.js": "/fishymap/service-worker.js",
+    "static/css/2.7c35e809.chunk.css.map": "/fishymap/static/css/2.7c35e809.chunk.css.map",
+    "static/css/main.ba57442f.chunk.css.map": "/fishymap/static/css/main.ba57442f.chunk.css.map",
+    "static/js/2.50eb0a52.chunk.js.LICENSE.txt": "/fishymap/static/js/2.50eb0a52.chunk.js.LICENSE.txt",
+    "static/media/fish.svg": "/fishymap/static/media/fish.6bc3fb70.svg",
+    "static/media/fish.png": "/fishymap/static/media/fish.ec8af68e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e55ccf65.js",
+    "static/css/2.7c35e809.chunk.css",
+    "static/js/2.50eb0a52.chunk.js",
+    "static/css/main.ba57442f.chunk.css",
+    "static/js/main.c2db867d.chunk.js"
+  ]
+}
