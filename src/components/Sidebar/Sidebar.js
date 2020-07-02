@@ -1,25 +1,32 @@
 import React, { useContext } from 'react';
 
-import { NavigationWrapper } from './navigation.css';
+import { SidebarWrapper } from './sidebar.css';
 
 import { slide as Menu } from 'react-burger-menu';
+import SidebarMenu from '../SidebarMenu/SidebarMenu';
 
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 import LogOut from '../LogOut/LogOut';
 import { AuthContext } from '../../App';
-
-const Navigation = () => {
+const Sidebar = () => {
   const Auth = useContext(AuthContext);
 
   return (
-    <NavigationWrapper>
+    <SidebarWrapper>
       <Menu right>
         {Auth.isLoggedIn && (
-          <>
+          <div
+            style={{
+              paddingTop: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
             <LogOut />
-            <span>Podešavanja:</span>
-          </>
+            <SidebarMenu />
+            <div></div>
+          </div>
         )}
         {!Auth.isLoggedIn && (
           <div style={{ margin: 'auto 0' }}>
@@ -32,8 +39,8 @@ const Navigation = () => {
           </div>
         )}
       </Menu>
-    </NavigationWrapper>
+    </SidebarWrapper>
   );
 };
 
-export default Navigation;
+export default Sidebar;

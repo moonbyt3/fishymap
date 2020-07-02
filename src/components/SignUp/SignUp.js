@@ -3,7 +3,7 @@ import { AuthContext } from '../../App';
 
 import * as firebase from 'firebase';
 
-import { Input } from '../Form/input.css';
+import { Input, Button } from '@material-ui/core';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -27,25 +27,28 @@ const SignUp = () => {
 
   return (
     <div>
-      <h1 className="title-big">Napravite nalog</h1>
+      <h1 className='title-big'>Napravite nalog</h1>
       <form onSubmit={(e) => handleForm(e)}>
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          name="email"
-          type="email"
-          placeholder="email"
+          name='email'
+          type='email'
+          placeholder='email'
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
-          type="password"
-          placeholder="password"
+          type='password'
+          placeholder='password'
+          style={{
+            marginBottom: '15px',
+          }}
         />
-        <hr />
-        <button type="submit">Registrujte se</button>
-
+        <Button type='submit' variant='contained' color='primary'>
+          Registrujte se
+        </Button>
         <span>{error}</span>
       </form>
     </div>

@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 
 import { ErrorMessage } from './login.css';
 
-import { Input } from '../Form/input.css';
+import { Button, Input } from '@material-ui/core';
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -48,33 +48,38 @@ const LogIn = () => {
 
   return (
     <div>
-      <h1 className="title-big">Ulogujte se</h1>
-      <form>
+      <h1 className='title-big'>Ulogujte se</h1>
+      <form onSubmit={(e) => handleForm(e)}>
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          name="email"
-          type="email"
-          placeholder="E-mail"
+          name='email'
+          type='email'
+          autoFocus={true}
+          placeholder='E-mail'
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
+          style={{
+            marginBottom: '15px',
+          }}
         />
-        <button type="submit" onClick={(e) => handleForm(e)}>
+
+        <Button type='submit' variant='contained' color='primary'>
           Ulogujte se
-        </button>
+        </Button>
         <hr />
-        <button className="googleBtn" type="button" onClick={handleGoogleLogin}>
+        <Button className='googleBtn' onClick={handleGoogleLogin}>
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="logo"
+            src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+            alt='logo'
           />
           Ulogujte se sa Google
-        </button>
+        </Button>
 
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </form>

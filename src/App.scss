@@ -45,10 +45,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
+  position: relative;
   display: flex;
   background: #e4e4e4;
   padding: 0 1.5em 0;
   font-size: 1.15em;
+  overflow: initial !important;
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -65,7 +67,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   height: auto !important;
   width: 100%;
   text-align: center;
-  padding: 40px 0;
 }
 
 /* Individual item */
