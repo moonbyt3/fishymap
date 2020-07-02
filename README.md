@@ -3,11 +3,13 @@
 ## Live Version
 https://moonbyt3.github.io/fishymap/
 
-All new features goes to separate branches
-
-` git checkout -b feature-name `
+## Contributing
 
 To start developing new feature **pull master branch first** and then checkout to new branch.
+
+All new features should go to separate branch
+
+`` git checkout -b feature-name ``
 
 When you finish feature make pull request.
 
