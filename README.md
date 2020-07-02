@@ -1,4 +1,7 @@
-## :fish: FishyMap :fishing_pole_and_fish:
+# :fish: FishyMap :fishing_pole_and_fish: :earth_africa:
+
+## Live Version
+https://moonbyt3.github.io/fishymap/
 
 All new features goes to separate branches
 
