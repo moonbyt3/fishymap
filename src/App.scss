@@ -45,8 +45,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
+  display: flex;
   background: #e4e4e4;
-  padding: 2.5em 1.5em 0;
+  padding: 0 1.5em 0;
   font-size: 1.15em;
 }
 
@@ -57,10 +58,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
+  display: flex;
+  flex-direction: column;
   color: #b8b7ad;
-  padding: 0.8em;
+  padding: 0;
   height: auto !important;
+  width: 100%;
   text-align: center;
+  padding: 40px 0;
 }
 
 /* Individual item */
@@ -71,7 +76,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
     outline: none;
   }
 }
-
 
 /* Styling of overlay */
 .bm-overlay {
@@ -85,5 +89,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   img {
     width: 25px;
+    margin-right: 5px;
   }
+}
+
+.title-big {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 15px;
 }

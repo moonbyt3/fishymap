@@ -1,51 +1,50 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../App";
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../App';
 
-import * as firebase from 'firebase'
+import * as firebase from 'firebase';
+
+import { Input } from '../Form/input.css';
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setErrors] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setErrors] = useState('');
 
   const Auth = useContext(AuthContext);
-  const handleForm = e => {
+  const handleForm = (e) => {
     e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
-      console.log('createUser', result);
-      
-    }).catch((error) => {
-      console.log(error);
-      
-    })
-    // Auth.setIsLoggedIn(true);
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        console.log('createUser', result);
+        Auth.setIsLoggedIn(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div>
-      <p>
-        Dont have an account?
-        <br />
-        
-      </p>
-      <h1>SignUp</h1>
-      <form onSubmit={e => handleForm(e)}>
-        <input
+      <h1 className="title-big">Napravite nalog</h1>
+      <form onSubmit={(e) => handleForm(e)}>
+        <Input
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           name="email"
           type="email"
           placeholder="email"
         />
-        <input
-          onChange={e => setPassword(e.target.value)}
+        <Input
+          onChange={(e) => setPassword(e.target.value)}
           name="password"
           value={password}
           type="password"
           placeholder="password"
         />
         <hr />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Registrujte se</button>
 
         <span>{error}</span>
       </form>
