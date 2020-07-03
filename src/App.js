@@ -8,6 +8,12 @@ import AddBoxIcon from '@material-ui/icons/AddBox';
 
 firebase.initializeApp(firebaseConfig);
 
+let viewport = {
+  height: window.innerHeight,
+};
+
+console.log(viewport.height);
+
 export const AuthContext = React.createContext(null);
 
 function App() {
@@ -23,7 +29,12 @@ function App() {
   }, []);
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-      <div className='App'>
+      <div
+        className='App'
+        style={{
+          height: `${viewport.height}px`,
+        }}
+      >
         {isLoggedIn && (
           <AddBoxIcon
             fontSize='large'
