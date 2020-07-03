@@ -4,6 +4,7 @@ export const SidebarMenuWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
 `;
 
 export const SidebarMenuItem = styled.a``;

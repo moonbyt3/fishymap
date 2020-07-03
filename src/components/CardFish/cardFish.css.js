@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro';
 
-export const MarkerPopupWrapper = styled.div`
+export const CardFishWrapper = styled.div`
   display: flex;
   max-width: 340px;
   width: 100%;
 `;
 
-export const MarkerPopupTitle = styled.span`
+export const CardFishTitle = styled.span`
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -14,14 +14,14 @@ export const MarkerPopupTitle = styled.span`
   margin-bottom: 5px;
 `;
 
-export const MarkerPopupMediaWrapper = styled.div`
+export const CardFishMediaWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
 `;
 
-export const MarkerPopupMedia = styled.div`
+export const CardFishMedia = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -32,7 +32,7 @@ export const MarkerPopupMedia = styled.div`
   }
 `;
 
-export const MarkerPopupData = styled.div`
+export const CardFishData = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -59,7 +59,7 @@ export const MarkerPopupData = styled.div`
     width: 100%;
   }
 `;
-export const MarkerPopupDataItem = styled.div`
+export const CardFishDataItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,7 +67,7 @@ export const MarkerPopupDataItem = styled.div`
   padding: 10px;
 `;
 
-export const MarkerPopupDataItemTitle = styled.span`
+export const CardFishDataItemTitle = styled.span`
   display: block;
   width: 100%;
   text-align: center;
@@ -75,7 +75,7 @@ export const MarkerPopupDataItemTitle = styled.span`
   font-weight: 600;
 `;
 
-export const MarkerPopupDataItemText = styled.span`
+export const CardFishDataItemText = styled.span`
   display: block;
   width: 100%;
   text-align: center;

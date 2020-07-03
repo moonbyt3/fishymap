@@ -7,24 +7,18 @@ import useLongPress from '../../helpers/longPress';
 
 import 'leaflet/dist/leaflet.css';
 
-const alertMessage = () => {
-  return console.log('long click press');
-};
-
 const MapView = (props) => {
   const [currentLocation, setCurrentLocation] = useState({
-    lat: 44.87278,
-    lng: 18.80833,
+    lat: 44.88017,
+    lng: 18.808732,
   });
   const [zoom, useZoom] = useState(15);
 
-  const clickLongPress = useLongPress(alertMessage, 1000);
-
   return (
-    <Map center={currentLocation} zoom={zoom} {...clickLongPress}>
+    <Map center={currentLocation} zoom={zoom}>
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="FishyMap"
+        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        attribution='FishyMap'
       />
 
       <Markers venues={data.venues} />

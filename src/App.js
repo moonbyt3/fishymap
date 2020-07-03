@@ -12,8 +12,6 @@ let viewport = {
   height: window.innerHeight,
 };
 
-console.log(viewport.height);
-
 export const AuthContext = React.createContext(null);
 
 function App() {
@@ -40,8 +38,8 @@ function App() {
             fontSize='large'
             style={{
               position: 'fixed',
-              top: '90px',
-              right: '36px',
+              top: '60px',
+              right: '10px',
               zIndex: '1000',
             }}
           />

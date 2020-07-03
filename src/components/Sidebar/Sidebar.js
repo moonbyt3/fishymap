@@ -2,13 +2,15 @@ import React, { useContext } from 'react';
 
 import { SidebarWrapper } from './sidebar.css';
 
+import { AuthContext } from '../../App';
 import { slide as Menu } from 'react-burger-menu';
 import SidebarMenu from '../SidebarMenu/SidebarMenu';
 
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 import LogOut from '../LogOut/LogOut';
-import { AuthContext } from '../../App';
+import Profile from '../Profile/Profile';
+
 const Sidebar = () => {
   const Auth = useContext(AuthContext);
 
@@ -25,7 +27,7 @@ const Sidebar = () => {
           >
             <LogOut />
             <SidebarMenu />
-            <div></div>
+            <Profile />
           </div>
         )}
         {!Auth.isLoggedIn && (
