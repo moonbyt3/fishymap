@@ -3,7 +3,7 @@ import { Popup } from 'react-leaflet';
 
 import CardFish from '../CardFish/CardFish';
 
-import fishImage from '../../assets/img/fish.png';
+import fishImage from '../../assets/img/fish.jpg';
 import avatar from '../../assets/img/icons/avatar.png';
 
 const MarkerPopup = (props) => {
@@ -11,13 +11,7 @@ const MarkerPopup = (props) => {
 
   return (
     <Popup>
-      <CardFish
-        data={{
-          name: name,
-          fishImage: fishImage,
-          avatar: avatar,
-        }}
-      />
+      <CardFish name={name} fishImage={fishImage} avatar={avatar} />
     </Popup>
   );
 };

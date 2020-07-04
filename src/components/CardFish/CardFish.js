@@ -11,11 +11,11 @@ import {
   CardFishDataItemText,
 } from './cardFish.css';
 
-import fishImage from '../../assets/img/fish.png';
+import fishImage from '../../assets/img/fish.jpg';
 import avatar from '../../assets/img/icons/avatar.png';
 
-const CardFish = ({ data }) => {
-  const { name, fishImage, avatar } = data;
+const CardFish = (props) => {
+  const { name, fishImage, avatar } = props;
 
   return (
     <CardFishWrapper>

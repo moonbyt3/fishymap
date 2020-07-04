@@ -4,6 +4,7 @@ export const ProfileWrapper = styled.div`
   border: 1px solid grey;
   border-radius: 4px;
   padding: 6px;
+  margin-bottom: 15px;
 `;
 
 export const ProfileCard = styled.div`
