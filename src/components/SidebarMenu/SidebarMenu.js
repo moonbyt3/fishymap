@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { AuthContext } from '../../App';
+import * as firebase from 'firebase';
+
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -71,6 +75,22 @@ export default function SidebarMenu() {
     setValue(index);
   };
 
+  const Auth = React.useContext(AuthContext);
+
+  const logOutUser = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        // Sign-out successful.
+        Auth.setIsLoggedIn(false);
+      })
+      .catch(function (error) {
+        // An error happened.
+        alert('log out ERROR');
+      });
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position='static' color='default'>
@@ -98,7 +118,11 @@ export default function SidebarMenu() {
             icon={<SettingsIcon />}
             {...a11yProps(2)}
           />
-          <Tab className={classes.tabIcon} icon={<ExitToAppIcon />} />
+          <Tab
+            className={classes.tabIcon}
+            icon={<ExitToAppIcon />}
+            onClick={logOutUser}
+          />
         </Tabs>
       </AppBar>
       <SwipeableViews
