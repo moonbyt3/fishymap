@@ -39,6 +39,16 @@ const SignUp = () => {
       <h1 className="title-big">Napravite nalog</h1>
       <form onSubmit={(e) => handleForm(e)}>
         <Input
+          onChange={(e) => setUsername(e.target.value)}
+          name="username"
+          value={username}
+          type="text"
+          placeholder="username"
+          style={{
+            marginBottom: "15px",
+          }}
+        />
+        <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           name="email"
@@ -51,16 +61,6 @@ const SignUp = () => {
           value={password}
           type="password"
           placeholder="password"
-          style={{
-            marginBottom: "15px",
-          }}
-        />
-        <Input
-          onChange={(e) => setUsername(e.target.value)}
-          name="username"
-          value={username}
-          type="text"
-          placeholder="username"
           style={{
             marginBottom: "15px",
           }}

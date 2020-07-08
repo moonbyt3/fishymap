@@ -12,7 +12,6 @@ import {
 } from './profile.css';
 
 import fishImage from '../../assets/img/fish.jpg';
-import avatar from '../../assets/img/icons/avatar.png';
 import fishIcon from '../../assets/fish.svg';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';

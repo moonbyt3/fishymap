@@ -19,7 +19,16 @@ function App() {
     firebase.auth().currentUser || false
   );
   const [user, setUser] = useState(null);
+  const [fishCatches, setFishCatches] = useState(null);
   useEffect(() => {
+    setFishCatches(
+      firebase.database().ref("/fishCatches").once("value").then(
+        (snapshot) => {
+          setFishCatches(snapshot.val());
+        }
+      )
+    );
+
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         setIsLoggedIn(true);
@@ -27,6 +36,9 @@ function App() {
       }
     });
   }, []);
+
+  // console.log(fishCatches);
+  
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <div

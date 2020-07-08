@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 import data from '../../assets/data';
 import Markers from '../VenueMarkers';
+import * as firebase from 'firebase';
 
 import useLongPress from '../../helpers/longPress';
 
@@ -13,6 +14,18 @@ const MapView = (props) => {
     lng: 18.808732,
   });
   const [zoom, useZoom] = useState(15);
+  const [fishData, setFishData] = useState(null);
+  useEffect(() => {
+    setFishData(
+      firebase
+        .database()
+        .ref("/fishCatches")
+        .once("value")
+        .then((snapshot) => {
+          setFishData(snapshot.val());
+        })
+    );
+  }, [])
 
   return (
     <Map center={currentLocation} zoom={zoom}>
