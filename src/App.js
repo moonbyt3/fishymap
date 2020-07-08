@@ -21,8 +21,10 @@ function App() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
-      setIsLoggedIn(true);
-      setUser({ user: user });
+      if (user) {
+        setIsLoggedIn(true);
+        setUser({ user: user });
+      }
     });
   }, []);
   return (

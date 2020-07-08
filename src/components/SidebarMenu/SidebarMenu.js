@@ -84,6 +84,11 @@ export default function SidebarMenu() {
       .then(function () {
         // Sign-out successful.
         Auth.setIsLoggedIn(false);
+        
+        
+      })
+      .then(() => {
+        console.log("should log out ", Auth.isLoggedIn);
       })
       .catch(function (error) {
         // An error happened.

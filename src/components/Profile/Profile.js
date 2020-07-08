@@ -33,7 +33,13 @@ const Profile = () => {
           <ProfileWrapper>
             <ProfileCard>
               <ProfileCardImg>
-                <img src={user.photoURL} alt='' />
+                <img
+                  src={
+                    user.photoURL ||
+                    "https://github.com/moonbyt3/fishymap/blob/master/src/assets/img/icons/avatar.png?raw=true"
+                  }
+                  alt=""
+                />
               </ProfileCardImg>
               <ProfileCardText>
                 <ProfileCardTextTitle>{user.displayName}</ProfileCardTextTitle>
@@ -44,38 +50,38 @@ const Profile = () => {
             <CardHeader
               avatar={
                 <Avatar
-                  aria-label='recipe'
-                  style={{ background: 'transparent', overflow: 'initial' }}
+                  aria-label="recipe"
+                  style={{ background: "transparent", overflow: "initial" }}
                 >
-                  <img src={fishIcon} alt='' />
+                  <img src={fishIcon} alt="" />
                 </Avatar>
               }
-              title='Ponton'
-              subheader='14. Jul 2020.'
+              title="Ponton"
+              subheader="14. Jul 2020."
             />
             <CardMedia
               image={fishImage}
-              title='Štuka'
-              style={{ height: '0', paddingTop: '56.25%' }}
+              title="Štuka"
+              style={{ height: "0", paddingTop: "56.25%" }}
             />
           </Card>
           <Card>
             <CardHeader
               avatar={
                 <Avatar
-                  aria-label='recipe'
-                  style={{ background: 'transparent', overflow: 'initial' }}
+                  aria-label="recipe"
+                  style={{ background: "transparent", overflow: "initial" }}
                 >
-                  <img src={fishIcon} alt='' />
+                  <img src={fishIcon} alt="" />
                 </Avatar>
               }
-              title='Ušće Brke i Save'
-              subheader='14. Jul 2020.'
+              title="Ušće Brke i Save"
+              subheader="14. Jul 2020."
             />
             <CardMedia
               image={fishImage}
-              title='Štuka'
-              style={{ height: '0', paddingTop: '56.25%' }}
+              title="Štuka"
+              style={{ height: "0", paddingTop: "56.25%" }}
             />
           </Card>
         </>
