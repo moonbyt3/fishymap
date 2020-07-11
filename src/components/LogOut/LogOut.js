@@ -1,31 +1,22 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../App';
-import * as firebase from 'firebase';
-import Button from '@material-ui/core/Button';
+import React, { useContext } from "react";
+import Parse from "parse";
+
+import { AuthContext } from "../../App";
+import Button from "@material-ui/core/Button";
 
 const LogOut = () => {
   const Auth = useContext(AuthContext);
 
   const logOutUser = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(function () {
-        // Sign-out successful.
-        Auth.setIsLoggedIn(false);
-      })
-      .catch(function (error) {
-        // An error happened.
-        alert('log out ERROR');
-      });
+    Parse.User.logOut();
   };
   return (
-    <div style={{ marginBottom: '15px' }}>
+    <div style={{ marginBottom: "15px" }}>
       <Button
         onClick={logOutUser}
-        variant='outlined'
-        color='secondary'
-        size='small'
+        variant="outlined"
+        color="secondary"
+        size="small"
       >
         Log Out
       </Button>

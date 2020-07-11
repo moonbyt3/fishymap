@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Map, TileLayer } from 'react-leaflet';
-import data from '../../assets/data';
-import Markers from '../VenueMarkers';
-import * as firebase from 'firebase';
+import React, { useState, useEffect } from "react";
+import { Map, TileLayer } from "react-leaflet";
+import data from "../../assets/data";
+import Markers from "../VenueMarkers";
 
-import useLongPress from '../../helpers/longPress';
-
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 const MapView = (props) => {
   const [currentLocation, setCurrentLocation] = useState({
@@ -16,22 +13,14 @@ const MapView = (props) => {
   const [zoom, useZoom] = useState(15);
   const [fishData, setFishData] = useState(null);
   useEffect(() => {
-    setFishData(
-      firebase
-        .database()
-        .ref("/fishCatches")
-        .once("value")
-        .then((snapshot) => {
-          setFishData(snapshot.val());
-        })
-    );
-  }, [])
+    setFishData({});
+  }, []);
 
   return (
     <Map center={currentLocation} zoom={zoom}>
       <TileLayer
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        attribution='FishyMap'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="FishyMap"
       />
 
       <Markers venues={data.venues} />

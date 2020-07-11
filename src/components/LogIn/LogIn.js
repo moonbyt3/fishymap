@@ -1,85 +1,71 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../App';
-import * as firebase from 'firebase';
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../App";
 
-import { ErrorMessage } from './login.css';
+import Parse from "parse";
 
-import { Button, Input } from '@material-ui/core';
+import { ErrorMessage } from "./login.css";
+
+import { Button, Input } from "@material-ui/core";
 
 const LogIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setErrors] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setErrors] = useState("");
 
   const Auth = useContext(AuthContext);
   const handleForm = (e) => {
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(function (result) {
-        if (result.user) {
-          Auth.setIsLoggedIn(true);
-        }
-      })
-      .catch((e) => {
-        setErrors(e.message);
-      });
-  };
-
-  const handleGoogleLogin = (e) => {
-    e.preventDefault();
-    var provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(function (result) {
-        // The signed-in user info.
-        if (result.user) {
-          Auth.setIsLoggedIn(true);
-        }
+    // Create a new instance of the user class
+    let user = Parse.User.logIn(email, password)
+      .then(function (user) {
+        console.log(
+          "User logged in successful with name: " +
+            user.get("username") +
+            " and email: " +
+            user.get("email")
+        );
+        Auth.setIsLoggedIn(true);
       })
       .catch(function (error) {
-        // Handle Errors here.
-        console.log(error);
+        console.log("Error: " + error.code + " " + error.message);
+
         setErrors(error.message);
       });
   };
-
   return (
     <div>
-      <h1 className='title-big'>Ulogujte se</h1>
+      <h1 className="title-big">Ulogujte se</h1>
       <form onSubmit={(e) => handleForm(e)}>
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          name='email'
-          type='email'
+          name="email"
+          type="text"
           autoFocus={true}
-          placeholder='E-mail'
+          placeholder="E-mail"
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
-          name='password'
+          name="password"
           value={password}
-          type='password'
-          placeholder='Password'
+          type="password"
+          placeholder="Password"
           style={{
-            marginBottom: '15px',
+            marginBottom: "15px",
           }}
         />
 
-        <Button type='submit' variant='contained' color='primary'>
+        <Button type="submit" variant="contained" color="primary">
           Ulogujte se
         </Button>
-        <hr />
-        <Button className='googleBtn' onClick={handleGoogleLogin}>
+        {/* <hr />
+        <Button className="googleBtn" onClick={handleFacebookLogin}>
           <img
-            src='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
-            alt='logo'
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            alt="logo"
           />
-          Ulogujte se sa Google
-        </Button>
+          Ulogujte se sa Facebook
+        </Button> */}
 
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </form>
