@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import * as firebase from 'firebase';
+import React, { useState, useEffect } from "react";
 
-import CardFish from '../CardFish/CardFish';
+import Parse from "parse";
+
+import CardFish from "../CardFish/CardFish";
 
 import {
   ProfileWrapper,
@@ -9,21 +10,37 @@ import {
   ProfileCardImg,
   ProfileCardText,
   ProfileCardTextTitle,
-} from './profile.css';
+} from "./profile.css";
 
-import fishImage from '../../assets/img/fish.jpg';
-import fishIcon from '../../assets/fish.svg';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
+import fishImage from "../../assets/img/fish.jpg";
+import fishIcon from "../../assets/fish.svg";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import Avatar from "@material-ui/core/Avatar";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    setUser(firebase.auth().currentUser);
-    // console.log(user);
+    // setUser(firebase.auth().currentUser);
+    var userInfo = new Parse.Object("User");
+    var query = new Parse.Query(userInfo);
+
+    query.include("Addresss");
+    query.include("name");
+
+    query.equalTo("objectId", "moonbyt3");
+    query.find({
+      success: function (results) {
+        console.log(results);
+      },
+      error: function (error) {
+        console.error("Error: " + error.code + " " + error.message);
+      },
+    });
+
+    console.log(user);
   });
   return (
     <>

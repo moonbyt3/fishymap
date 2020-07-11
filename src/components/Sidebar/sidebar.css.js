@@ -1,7 +1,3 @@
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
-export const SidebarWrapper = styled.div`
-  & > * {
-    margin: 0 4px;
-  }
-`;
+export const SidebarWrapper = styled.div``;
