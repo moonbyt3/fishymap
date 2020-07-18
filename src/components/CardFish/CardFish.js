@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import moment from "moment";
+import "moment/locale/hr";
 
 import {
   CardFishWrapper,
@@ -9,17 +11,17 @@ import {
   CardFishDataItem,
   CardFishDataItemTitle,
   CardFishDataItemText,
-} from './cardFish.css';
+} from "./cardFish.css";
 
 const CardFish = (props) => {
-  const { name, fishImage, avatar } = props;
+  const { name, fishImage, avatar, fishSpecies, dateTime } = props;
 
   return (
     <CardFishWrapper>
       <CardFishMediaWrapper>
         <CardFishTitle>{name}</CardFishTitle>
         <CardFishMedia>
-          <img src={fishImage} alt='' />
+          <img src={fishImage} alt="" />
         </CardFishMedia>
       </CardFishMediaWrapper>
       <CardFishData>
@@ -29,14 +31,18 @@ const CardFish = (props) => {
         </CardFishDataItem>
         <CardFishDataItem>
           <CardFishDataItemTitle>Vrsta</CardFishDataItemTitle>
-          <CardFishDataItemText>Štuka</CardFishDataItemText>
+          <CardFishDataItemText>{fishSpecies}</CardFishDataItemText>
         </CardFishDataItem>
         <CardFishDataItem>
           <CardFishDataItemTitle>Vrijeme</CardFishDataItemTitle>
-          <CardFishDataItemText>08:00</CardFishDataItemText>
+          <CardFishDataItemText>
+            <span title={moment().startOf("day").fromNow()}>
+              {moment().format("LT")}
+            </span>
+          </CardFishDataItemText>
         </CardFishDataItem>
         <CardFishDataItem>
-          <img src={avatar} alt='' />
+          <img src={avatar} alt="" />
         </CardFishDataItem>
       </CardFishData>
     </CardFishWrapper>

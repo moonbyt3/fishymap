@@ -5,11 +5,11 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.scss";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 
-Parse.serverURL = "https://parseapi.back4app.com";
 Parse.initialize(
   "e4X0mA6gyPKujy5nMcZVX3UuUfnyMv3BN0t8RCVX", // Application ID
   "XAx1ND5eWojCzGhUkH1aMo4OeotoirZvDP5qqaDC" // Javascript key
 );
+Parse.serverURL = "https://parseapi.back4app.com";
 
 let viewport = {
   height: window.innerHeight,
