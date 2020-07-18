@@ -36,8 +36,8 @@ const CardFish = (props) => {
         <CardFishDataItem>
           <CardFishDataItemTitle>Vrijeme</CardFishDataItemTitle>
           <CardFishDataItemText>
-            <span title={moment().startOf("day").fromNow()}>
-              {moment().format("LT")}
+            <span title={moment(dateTime).startOf("day").fromNow()}>
+              {moment(dateTime).format("LT")}
             </span>
           </CardFishDataItemText>
         </CardFishDataItem>
