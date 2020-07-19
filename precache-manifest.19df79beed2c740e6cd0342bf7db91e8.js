@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "759cc16216bab9763c2284a672576322",
+    "revision": "9fbb8e7ae60df8a20323457ae9a8fb87",
     "url": "/fishymap/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fishymap/static/css/2.7c35e809.chunk.css"
   },
   {
-    "revision": "419e4872bb97ec744f06",
+    "revision": "1fbd3d04cff3204a17c7",
     "url": "/fishymap/static/css/main.d902555f.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fishymap/static/js/2.abf3f3b8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "419e4872bb97ec744f06",
-    "url": "/fishymap/static/js/main.d3f1878c.chunk.js"
+    "revision": "1fbd3d04cff3204a17c7",
+    "url": "/fishymap/static/js/main.4fe01581.chunk.js"
   },
   {
     "revision": "42ff20da1030f8f4b127",
