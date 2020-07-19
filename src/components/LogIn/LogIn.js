@@ -1,16 +1,16 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../App";
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../App';
 
-import Parse from "parse";
+import Parse from 'parse';
 
-import { ErrorMessage } from "./login.css";
+import { ErrorMessage } from './login.css';
 
-import { Button, Input } from "@material-ui/core";
+import { Button, Input } from '@material-ui/core';
 
 const LogIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setErrors] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setErrors] = useState('');
 
   const Auth = useContext(AuthContext);
   const handleForm = (e) => {
@@ -19,43 +19,43 @@ const LogIn = () => {
     Parse.User.logIn(email, password)
       .then(function (user) {
         let userObject = {
-          username: user.get("username"),
-          email: user.get("email"),
-          avatar: user.get("avatar"),
+          username: user.get('username'),
+          email: user.get('email'),
+          profilePicture: user.get('profilePicture'),
         };
         Auth.setUser(userObject);
         Auth.setIsLoggedIn(true);
       })
       .catch(function (error) {
-        console.log("Error: " + error.code + " " + error.message);
+        console.log('Error: ' + error.code + ' ' + error.message);
 
         setErrors(error.message);
       });
   };
   return (
     <div>
-      <h1 className="title-big">Ulogujte se</h1>
+      <h1 className='title-big'>Ulogujte se</h1>
       <form onSubmit={(e) => handleForm(e)}>
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          name="email"
-          type="text"
+          name='email'
+          type='text'
           autoFocus={true}
-          placeholder="E-mail"
+          placeholder='E-mail'
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
           style={{
-            marginBottom: "15px",
+            marginBottom: '15px',
           }}
         />
 
-        <Button type="submit" variant="contained" color="primary">
+        <Button type='submit' variant='contained' color='primary'>
           Ulogujte se
         </Button>
         {/* <hr />

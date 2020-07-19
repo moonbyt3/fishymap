@@ -25,7 +25,7 @@ const Profile = () => {
   useEffect(() => {
     setUser(Auth.user || null);
   }, [Auth.user]);
-
+  console.log(user);
   return (
     <>
       {user && (
@@ -33,7 +33,12 @@ const Profile = () => {
           <ProfileWrapper>
             <ProfileCard>
               <ProfileCardImg>
-                <img src={user.profilePicture._url} alt='User Avatar' />
+                {user.profilePicture._url && (
+                  <img
+                    src={Auth.user.profilePicture._url || ''}
+                    alt='User Avatar'
+                  />
+                )}
               </ProfileCardImg>
               <ProfileCardText>
                 <ProfileCardTextTitle>{user.username}</ProfileCardTextTitle>
