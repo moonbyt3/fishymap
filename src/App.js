@@ -19,9 +19,22 @@ let viewport = {
 
 export const AuthContext = React.createContext(null);
 
+//function that gets the location and returns it
+function getLocation() {}
+//function that retrieves the position
+function showPosition(position) {
+  var location = {
+    longitude: position.coords.longitude,
+    latitude: position.coords.latitude,
+  };
+}
+//request for location
+getLocation();
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
     let currentUser = Parse.User.current();
@@ -29,10 +42,24 @@ function App() {
       setUser(currentUser.attributes);
       setIsLoggedIn(true);
     }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((data) => {
+        let position = {
+          lat: data.coords.latitude,
+          lon: data.coords.longitude,
+        };
+        setUserLocation(position);
+      });
+    } else {
+      alert('Geo Location not supported by browser');
+    }
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, user, setUser }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, user, setUser, userLocation }}
+    >
       <div
         className='App'
         style={{
