@@ -1,13 +1,12 @@
-import React from 'react';
-import SidebarMenu from '../../SidebarMenu/SidebarMenu';
-import LogOut from '../../LogOut/LogOut';
+import React from "react";
+import SidebarMenu from "../../SidebarMenu/SidebarMenu";
 
 const LoggedIn = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <SidebarMenu />

@@ -20,20 +20,14 @@ export const AuthContext = React.createContext(null);
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [fishCatches, setFishCatches] = useState(null);
+
   useEffect(() => {
-    setFishCatches({});
     let currentUser = Parse.User.current();
     if (currentUser) {
-      console.log(currentUser);
-
       setUser(currentUser.attributes);
       setIsLoggedIn(true);
     }
-    console.log(currentUser);
   }, []);
-
-  // console.log(fishCatches);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, user, setUser }}>

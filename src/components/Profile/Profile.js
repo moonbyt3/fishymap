@@ -24,8 +24,7 @@ const Profile = () => {
 
   useEffect(() => {
     setUser(Auth.user || null);
-    console.log("context user: ", user);
-  }, []);
+  }, [Auth.user]);
 
   return (
     <>
