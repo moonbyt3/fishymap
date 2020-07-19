@@ -15,7 +15,7 @@ import {
 
 const CardFish = (props) => {
   const { name, fishImage, avatar, fishSpecies, time } = props;
-  console.log('datetyime', props);
+  console.log(fishImage);
   return (
     <CardFishWrapper>
       <CardFishMediaWrapper>
