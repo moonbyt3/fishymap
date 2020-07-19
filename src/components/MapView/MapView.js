@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Map, TileLayer } from "react-leaflet";
-import data from "../../assets/data";
 import Markers from "../VenueMarkers";
 
 import Parse from "parse";
 
 import "leaflet/dist/leaflet.css";
 
-const MapView = (props) => {
+const MapView = () => {
   const [currentLocation, setCurrentLocation] = useState({
     lat: 44.88017,
     lng: 18.808732,
@@ -20,11 +19,9 @@ const MapView = (props) => {
     const query = new Parse.Query(fishCatches);
     query.find().then(
       (results) => {
-        // You can use the "get" method to get the value of an attribute
-        // Ex: response.get("<ATTRIBUTE_NAME>")
         let data = [];
         results.map((fishCatch) => {
-          data.push({
+          return data.push({
             name: fishCatch.get("name"),
             description: fishCatch.get("description"),
             geometry: fishCatch.get("coordinates"),

@@ -79,6 +79,7 @@ export default function SidebarMenu() {
   const logOutUser = () => {
     Parse.User.logOut();
     Auth.setIsLoggedIn(false);
+    Auth.setUser(null);
   };
 
   return (

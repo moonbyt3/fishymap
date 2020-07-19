@@ -16,14 +16,14 @@ const LogIn = () => {
   const handleForm = (e) => {
     e.preventDefault();
     // Create a new instance of the user class
-    let user = Parse.User.logIn(email, password)
+    Parse.User.logIn(email, password)
       .then(function (user) {
-        console.log(
-          "User logged in successful with name: " +
-            user.get("username") +
-            " and email: " +
-            user.get("email")
-        );
+        let userObject = {
+          username: user.get("username"),
+          email: user.get("email"),
+          avatar: user.get("avatar"),
+        };
+        Auth.setUser(userObject);
         Auth.setIsLoggedIn(true);
       })
       .catch(function (error) {

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
-import Parse from "parse";
-
-import CardFish from "../CardFish/CardFish";
+import { AuthContext } from "../../App";
 
 import {
   ProfileWrapper,
@@ -18,30 +16,17 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
 
 const Profile = () => {
+  const Auth = useContext(AuthContext);
+
   const [user, setUser] = useState(null);
+
   useEffect(() => {
-    // setUser(firebase.auth().currentUser);
-    var userInfo = new Parse.Object("User");
-    var query = new Parse.Query(userInfo);
+    setUser(Auth.user || null);
+    console.log("context user: ", user);
+  }, []);
 
-    query.include("Addresss");
-    query.include("name");
-
-    query.equalTo("objectId", "moonbyt3");
-    query.find({
-      success: function (results) {
-        console.log(results);
-      },
-      error: function (error) {
-        console.error("Error: " + error.code + " " + error.message);
-      },
-    });
-
-    console.log(user);
-  });
   return (
     <>
       {user && (
@@ -51,14 +36,14 @@ const Profile = () => {
               <ProfileCardImg>
                 <img
                   src={
-                    user.photoURL ||
-                    "https://github.com/moonbyt3/fishymap/blob/master/src/assets/img/icons/avatar.png?raw=true"
+                    user.avatar ||
+                    "https://github.com/moonbyt3/fishymap/blob/master/src/assets/img/icons/fishing.svg"
                   }
                   alt=""
                 />
               </ProfileCardImg>
               <ProfileCardText>
-                <ProfileCardTextTitle>{user.displayName}</ProfileCardTextTitle>
+                <ProfileCardTextTitle>{user.username}</ProfileCardTextTitle>
               </ProfileCardText>
             </ProfileCard>
           </ProfileWrapper>

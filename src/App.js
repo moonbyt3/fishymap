@@ -23,18 +23,20 @@ function App() {
   const [fishCatches, setFishCatches] = useState(null);
   useEffect(() => {
     setFishCatches({});
-    let getUser = Parse.User.current();
-    if (getUser) {
-      setUser({ user: getUser });
+    let currentUser = Parse.User.current();
+    if (currentUser) {
+      console.log(currentUser);
+
+      setUser(currentUser.attributes);
       setIsLoggedIn(true);
     }
-    console.log(getUser);
+    console.log(currentUser);
   }, []);
 
   // console.log(fishCatches);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, user, setUser }}>
       <div
         className="App"
         style={{

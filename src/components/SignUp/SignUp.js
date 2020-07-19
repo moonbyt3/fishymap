@@ -32,6 +32,7 @@ const SignUp = () => {
             " and email: " +
             user.get("email")
         );
+        Auth.setUser(user);
       })
       .catch(function (error) {
         console.log("Error: " + error.code + " " + error.message);

@@ -7,7 +7,6 @@ import fishImage from "../../assets/img/fish.jpg";
 
 const MarkerPopup = (props) => {
   const { name, species, createdAt } = props.data;
-  console.log(props.data);
 
   return (
     <Popup>
