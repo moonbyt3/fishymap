@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu } from 'react-burger-menu';
 
-import { AuthContext } from "../../App";
-import LoggedIn from "../Menu/LoggedIn/LoggedIn";
-import NotLoggedIn from "../Menu/NotLoggedIn/NotLoggedIn";
+import { AuthContext } from '../../App';
+import LoggedIn from '../Menu/LoggedIn/LoggedIn';
+import NotLoggedIn from '../Menu/NotLoggedIn/NotLoggedIn';
 
-import { SidebarWrapper } from "./sidebar.css";
+import { SidebarWrapper } from './sidebar.css';
 
 const Sidebar = () => {
   const Auth = useContext(AuthContext);
