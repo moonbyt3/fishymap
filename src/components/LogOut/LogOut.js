@@ -9,7 +9,7 @@ const LogOut = () => {
 
   const logOutUser = () => {
     Parse.User.logOut();
-    Auth.setUser({});
+    Auth.setUser(null);
   };
   return (
     <div style={{ marginBottom: "15px" }}>
