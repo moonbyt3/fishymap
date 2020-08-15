@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fishymap/static/css/main.d902555f.chunk.css",
-    "main.js": "/fishymap/static/js/main.76ddfec2.chunk.js",
-    "main.js.map": "/fishymap/static/js/main.76ddfec2.chunk.js.map",
+    "main.js": "/fishymap/static/js/main.80a2cc47.chunk.js",
+    "main.js.map": "/fishymap/static/js/main.80a2cc47.chunk.js.map",
     "runtime-main.js": "/fishymap/static/js/runtime-main.e55ccf65.js",
     "runtime-main.js.map": "/fishymap/static/js/runtime-main.e55ccf65.js.map",
     "static/css/2.7c35e809.chunk.css": "/fishymap/static/css/2.7c35e809.chunk.css",
     "static/js/2.61b5b0e6.chunk.js": "/fishymap/static/js/2.61b5b0e6.chunk.js",
     "static/js/2.61b5b0e6.chunk.js.map": "/fishymap/static/js/2.61b5b0e6.chunk.js.map",
     "index.html": "/fishymap/index.html",
-    "precache-manifest.56286cb210f49d0935ff65275d487267.js": "/fishymap/precache-manifest.56286cb210f49d0935ff65275d487267.js",
+    "precache-manifest.c5c53b0e6fd0720256482c3025a39216.js": "/fishymap/precache-manifest.c5c53b0e6fd0720256482c3025a39216.js",
     "service-worker.js": "/fishymap/service-worker.js",
     "static/css/2.7c35e809.chunk.css.map": "/fishymap/static/css/2.7c35e809.chunk.css.map",
     "static/css/main.d902555f.chunk.css.map": "/fishymap/static/css/main.d902555f.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.7c35e809.chunk.css",
     "static/js/2.61b5b0e6.chunk.js",
     "static/css/main.d902555f.chunk.css",
-    "static/js/main.76ddfec2.chunk.js"
+    "static/js/main.80a2cc47.chunk.js"
   ]
 }
