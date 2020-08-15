@@ -103,7 +103,7 @@ const AddFish = () => {
             onChange={handleFishPlace}
           />
           <AddFishPicture style={{ marginBottom: '15px' }}>
-            <img style={{maxHeight: '130px'}} src={picture && picture} />
+            <img style={{display: 'block', maxHeight: '130px', padding: '0 15px', margin: '0 auto 15px'}} src={picture && picture} />
 
             <input
               accept='image/*'
