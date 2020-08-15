@@ -60,6 +60,8 @@ const AddFish = () => {
     setPictureName(event.target.files[0].name);
     // convert image to base64
     toDataURL(event.target.files[0], (e) => {setPicture64(e)});
+    // Preview image in form
+    setPicture(URL.createObjectURL(event.target.files[0]))
   };
 
   const handleFishPlace = (event) => {
@@ -101,7 +103,7 @@ const AddFish = () => {
             onChange={handleFishPlace}
           />
           <AddFishPicture style={{ marginBottom: '15px' }}>
-            <img src={picture && picture.file} />
+            <img src={picture && picture} />
 
             <input
               accept='image/*'
