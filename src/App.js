@@ -39,7 +39,6 @@ function App() {
   useEffect(() => {
     let currentUser = Parse.User.current();
     if (currentUser) {
-      console.log(currentUser);
       setUser({
         userId: currentUser.id,
         username: currentUser.get("username"),
@@ -50,10 +49,10 @@ function App() {
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((data) => {
-        let position = {
-          lat: data.coords.latitude,
-          lon: data.coords.longitude,
-        };
+        let position = [
+          data.coords.latitude,
+          data.coords.longitude,
+        ];
         setUserLocation(position);
       });
     } else {

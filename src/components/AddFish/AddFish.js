@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+
+import Parse from 'parse';
 
 import { slide as AddFishMenu } from 'react-burger-menu';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
+
+import { AuthContext } from '../../App';
 
 import {
   AddFishWrapper,
@@ -26,20 +30,62 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const handleFishSubmit = (e) => {
-  e.preventDefault();
-  console.log('submit');
-  alert('To be developed...');
-};
-
 const AddFish = () => {
   const classes = useStyles();
-  const [picture, setPicture] = React.useState({ file: '' });
+  const [picture, setPicture] = useState(null);
+  const [picture64, setPicture64] = useState('');
+  const [pictureName, setPictureName] = useState('');
+  const [placeName, setPlaceName] = useState('');
+  const [fishSpecies, setFishSpecies] = useState('');
 
-  const handlePictureUpload = (event) => {
-    setPicture({
-      file: URL.createObjectURL(event.target.files[0]),
-    });
+  const Auth = useContext(AuthContext);
+
+  // Function for converting image to base64 format
+  const toDataURL = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
+
+
+  const handlePictureSelect = (event) => {
+    setPictureName(event.target.files[0].name);
+    // convert image to base64
+    toDataURL(event.target.files[0], (e) => {setPicture64(e)});
+  };
+
+  const handleFishPlace = (event) => {
+    setPlaceName(event.target.value);
+  }
+
+  const handleFishName = (event) => {
+    setFishSpecies(event.target.value);
+  }
+
+  const handleFishSubmit = (e) => {
+    e.preventDefault();
+    const fishImage = new Parse.File(pictureName, {base64: picture64});
+    const FishCatch = Parse.Object.extend('fishCatches');
+    const fishCatch = new FishCatch();
+    fishCatch.set('name', placeName);
+    fishCatch.set('species', fishSpecies);
+    fishCatch.set('userId', Auth.user.userId);
+    fishCatch.set('fishPicture', fishImage);
+    fishCatch.set('coordinates', Auth.userLocation);
+    
+    fishCatch.save().then((data) => {
+      console.log('Fish catch sucessifully saved to the database.');
+    }, (error) => {
+      alert('Failed to create new object, with error code: ' + error.message);
+    })
   };
 
   return (
@@ -52,9 +98,10 @@ const AddFish = () => {
           <Input
             placeholder='Ime mjesta ulova'
             style={{ marginBottom: '15px' }}
+            onChange={handleFishPlace}
           />
           <AddFishPicture style={{ marginBottom: '15px' }}>
-            <img src={picture.file || ''} />
+            <img src={picture && picture.file} />
 
             <input
               accept='image/*'
@@ -62,7 +109,7 @@ const AddFish = () => {
               id='contained-button-file'
               multiple
               type='file'
-              onChange={handlePictureUpload}
+              onChange={handlePictureSelect}
             />
             <label htmlFor='contained-button-file'>
               <Button variant='contained' color='primary' component='span'>
@@ -71,7 +118,7 @@ const AddFish = () => {
               </Button>
             </label>
           </AddFishPicture>
-          <Input placeholder='Vrsta ribe' style={{ marginBottom: '15px' }} />
+          <Input placeholder='Vrsta ribe' style={{ marginBottom: '15px' }} onChange={handleFishName} />
           <AddFishButtonWrap>
             <Button variant='contained' color='primary' type='submit'>
               Pošalji

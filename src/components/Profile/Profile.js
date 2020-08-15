@@ -25,7 +25,6 @@ const Profile = () => {
   useEffect(() => {
     setUser(Auth.user || null);
   }, [Auth.user]);
-  console.log(user);
   return (
     <>
       {user && (

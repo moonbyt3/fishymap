@@ -18,7 +18,9 @@ const LogIn = () => {
     // Create a new instance of the user class
     Parse.User.logIn(email, password)
       .then(function (user) {
+        console.log('user: ', user)
         let userObject = {
+          userId: user.get('objectId'),
           username: user.get('username'),
           email: user.get('email'),
           profilePicture: user.get('profilePicture'),

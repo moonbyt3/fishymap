@@ -23,7 +23,6 @@ const MapView = (props) => {
     query.find().then(
       (results) => {
         let data = [];
-        console.log(props);
         results.map((fishCatch) => {
           return data.push({
             name: fishCatch.get('name'),
