@@ -18,7 +18,7 @@ const LogIn = () => {
     // Create a new instance of the user class
     Parse.User.logIn(email, password)
       .then(function (user) {
-        console.log('user: ', user)
+        console.log('user: ', user);
         let userObject = {
           userId: user.get('objectId'),
           username: user.get('username'),
@@ -36,28 +36,28 @@ const LogIn = () => {
   };
   return (
     <div>
-      <h1 className='title-big'>Ulogujte se</h1>
+      <h1 className="title-big">Ulogujte se</h1>
       <form onSubmit={(e) => handleForm(e)}>
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          name='email'
-          type='text'
+          name="email"
+          type="text"
           autoFocus={true}
-          placeholder='E-mail'
+          placeholder="E-mail"
         />
         <Input
           onChange={(e) => setPassword(e.target.value)}
-          name='password'
+          name="password"
           value={password}
-          type='password'
-          placeholder='Password'
+          type="password"
+          placeholder="Password"
           style={{
             marginBottom: '15px',
           }}
         />
 
-        <Button type='submit' variant='contained' color='primary'>
+        <Button type="submit" variant="contained" color="primary">
           Ulogujte se
         </Button>
         {/* <hr />

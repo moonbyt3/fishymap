@@ -1,12 +1,12 @@
-import React from "react";
-import { Popup } from "react-leaflet";
+import React from 'react';
+import { Popup } from 'react-leaflet';
 
-import CardFish from "../CardFish/CardFish";
+import CardFish from '../CardFish/CardFish';
 
-import fishImage from "../../assets/img/fish.jpg";
+import fishImage from '../../assets/img/fish.jpg';
 
 const MarkerPopup = (props) => {
-  const { name, species, createdAt } = props.data;
+  const { name, species, createdAt, fishImage } = props.data;
 
   return (
     <Popup>

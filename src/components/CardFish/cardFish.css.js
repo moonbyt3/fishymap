@@ -26,9 +26,16 @@ export const CardFishMediaWrapper = styled.div`
 export const CardFishMedia = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  margin-top: auto;
+  margin-top: 10px;
   height: 100%;
+  min-height: 75px;
+  background-color: #000;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const CardFishData = styled.div`

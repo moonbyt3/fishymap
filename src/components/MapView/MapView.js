@@ -30,6 +30,7 @@ const MapView = (props) => {
             geometry: fishCatch.get('coordinates'),
             createdAt: fishCatch.get('createdAt'),
             species: fishCatch.get('species'),
+            fishImage: fishCatch.get('fishPicture'),
           });
         });
 
@@ -48,8 +49,8 @@ const MapView = (props) => {
   return (
     <Map center={currentLocation} zoom={zoom}>
       <TileLayer
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-        attribution='FishyMap'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="FishyMap"
       />
 
       <Markers venues={fishData} />

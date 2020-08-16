@@ -1,24 +1,24 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../App";
-import Parse from "parse";
+import React, { useState, useContext } from 'react';
+import { AuthContext } from '../../App';
+import Parse from 'parse';
 
-import { Input, Button } from "@material-ui/core";
+import { Input, Button } from '@material-ui/core';
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
 
-  const [error, setErrors] = useState("");
+  const [error, setErrors] = useState('');
 
   const Auth = useContext(AuthContext);
   const handleForm = (e) => {
     e.preventDefault();
     // Create a new instance of the user class
     var user = new Parse.User();
-    user.set("username", username);
-    user.set("password", password);
-    user.set("email", email);
+    user.set('username', username);
+    user.set('password', password);
+    user.set('email', email);
 
     // other fields can be set just like with Parse.Object
     // user.set("phone", "415-392-0202");
@@ -27,15 +27,15 @@ const SignUp = () => {
       .signUp()
       .then(function (user) {
         console.log(
-          "User created successful with name: " +
-            user.get("username") +
-            " and email: " +
-            user.get("email")
+          'User created successful with name: ' +
+            user.get('username') +
+            ' and email: ' +
+            user.get('email')
         );
         Auth.setUser(user);
       })
       .catch(function (error) {
-        console.log("Error: " + error.code + " " + error.message);
+        console.log('Error: ' + error.code + ' ' + error.message);
         setErrors(error.message);
       });
   };
@@ -51,7 +51,7 @@ const SignUp = () => {
           type="text"
           placeholder="username"
           style={{
-            marginBottom: "15px",
+            marginBottom: '15px',
           }}
         />
         <Input
@@ -68,7 +68,7 @@ const SignUp = () => {
           type="password"
           placeholder="password"
           style={{
-            marginBottom: "15px",
+            marginBottom: '15px',
           }}
         />
         <Button type="submit" variant="contained" color="primary">

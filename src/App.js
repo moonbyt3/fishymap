@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import Parse from "parse";
+import React, { useState, useEffect } from 'react';
+import Parse from 'parse';
 
-import MapView from "./components/MapView/MapView";
-import Sidebar from "./components/Sidebar/Sidebar";
-import AddFish from "./components/AddFish/AddFish";
-import "./App.scss";
-import AddBoxIcon from "@material-ui/icons/AddBox";
+import MapView from './components/MapView/MapView';
+import Sidebar from './components/Sidebar/Sidebar';
+import AddFish from './components/AddFish/AddFish';
+import './App.scss';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 Parse.initialize(
-  "e4X0mA6gyPKujy5nMcZVX3UuUfnyMv3BN0t8RCVX", // Application ID
-  "XAx1ND5eWojCzGhUkH1aMo4OeotoirZvDP5qqaDC" // Javascript key
+  'e4X0mA6gyPKujy5nMcZVX3UuUfnyMv3BN0t8RCVX', // Application ID
+  'XAx1ND5eWojCzGhUkH1aMo4OeotoirZvDP5qqaDC' // Javascript key
 );
-Parse.serverURL = "https://parseapi.back4app.com";
+Parse.serverURL = 'https://parseapi.back4app.com';
 
 let viewport = {
   height: window.innerHeight,
@@ -41,22 +41,19 @@ function App() {
     if (currentUser) {
       setUser({
         userId: currentUser.id,
-        username: currentUser.get("username"),
-        profilePicture: currentUser.get("profilePicture"),
+        username: currentUser.get('username'),
+        profilePicture: currentUser.get('profilePicture'),
       });
       setIsLoggedIn(true);
     }
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((data) => {
-        let position = [
-          data.coords.latitude,
-          data.coords.longitude,
-        ];
+        let position = [data.coords.latitude, data.coords.longitude];
         setUserLocation(position);
       });
     } else {
-      alert("Geo Location not supported by browser");
+      alert('Geo Location not supported by browser');
     }
   }, []);
 

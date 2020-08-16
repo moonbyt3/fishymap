@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import Parse from "parse";
+import React, { useContext } from 'react';
+import Parse from 'parse';
 
-import { AuthContext } from "../../App";
-import Button from "@material-ui/core/Button";
+import { AuthContext } from '../../App';
+import Button from '@material-ui/core/Button';
 
 const LogOut = () => {
   const Auth = useContext(AuthContext);
@@ -12,7 +12,7 @@ const LogOut = () => {
     Auth.setUser(null);
   };
   return (
-    <div style={{ marginBottom: "15px" }}>
+    <div style={{ marginBottom: '15px' }}>
       <Button
         onClick={logOutUser}
         variant="outlined"

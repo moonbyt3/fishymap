@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 const AddFish = () => {
   const classes = useStyles();
   const [picture, setPicture] = useState(null);
-  const [picture64, setPicture64] = useState('');
   const [pictureName, setPictureName] = useState('');
   const [placeName, setPlaceName] = useState('');
   const [fishSpecies, setFishSpecies] = useState('');
@@ -41,27 +40,23 @@ const AddFish = () => {
   const Auth = useContext(AuthContext);
 
   // Function for converting image to base64 format
-  const toDataURL = function(url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-      var reader = new FileReader();
-      reader.onloadend = function() {
-        callback(reader.result);
-      }
-      reader.readAsDataURL(xhr.response);
+  const getBase64 = (file, cb) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+        cb(reader.result)
     };
-    xhr.open('GET', url);
-    xhr.responseType = 'blob';
-    xhr.send();
+    reader.onerror = function (error) {
+        console.log('Error: ', error);
+    };
   }
-
 
   const handlePictureSelect = (event) => {
     setPictureName(event.target.files[0].name);
     // convert image to base64
-    toDataURL(event.target.files[0], (e) => {setPicture64(e)});
-    // Preview image in form
-    setPicture(URL.createObjectURL(event.target.files[0]))
+    getBase64(event.target.files[0], (imgBase64) => {
+      setPicture(imgBase64);
+    })
   };
 
   const handleFishPlace = (event) => {
@@ -74,7 +69,7 @@ const AddFish = () => {
 
   const handleFishSubmit = (e) => {
     e.preventDefault();
-    const fishImage = new Parse.File(pictureName, {base64: picture64});
+    const fishImage = new Parse.File(pictureName, {base64: picture});
     const FishCatch = Parse.Object.extend('fishCatches');
     const fishCatch = new FishCatch();
     fishCatch.set('name', placeName);
@@ -85,6 +80,10 @@ const AddFish = () => {
     
     fishCatch.save().then((data) => {
       console.log('Fish catch sucessifully saved to the database.');
+      setPicture(null);
+      setPictureName('')
+      setPlaceName('')
+      setFishSpecies('')
     }, (error) => {
       alert('Failed to create new object, with error code: ' + error.message);
     })
@@ -101,6 +100,7 @@ const AddFish = () => {
             placeholder='Ime mjesta ulova'
             style={{ marginBottom: '15px' }}
             onChange={handleFishPlace}
+            value={placeName}
           />
           <AddFishPicture style={{ marginBottom: '15px' }}>
             <img style={{display: 'block', maxHeight: '130px', padding: '0 15px', margin: '0 auto 15px'}} src={picture && picture} />
@@ -120,7 +120,7 @@ const AddFish = () => {
               </Button>
             </label>
           </AddFishPicture>
-          <Input placeholder='Vrsta ribe' style={{ marginBottom: '15px' }} onChange={handleFishName} />
+          <Input placeholder='Vrsta ribe' style={{ marginBottom: '15px' }} value={fishSpecies} onChange={handleFishName} />
           <AddFishButtonWrap>
             <Button variant='contained' color='primary' type='submit'>
               Pošalji

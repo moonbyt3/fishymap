@@ -15,12 +15,13 @@ import {
 
 const CardFish = (props) => {
   const { name, fishImage, avatar, fishSpecies, time } = props;
+  console.log(props);
   return (
     <CardFishWrapper>
       <CardFishMediaWrapper>
         <CardFishTitle>{name}</CardFishTitle>
         <CardFishMedia>
-          <img src={fishImage} alt='' />
+          <img src={fishImage._url} alt="" />
         </CardFishMedia>
       </CardFishMediaWrapper>
       <CardFishData>
@@ -41,7 +42,7 @@ const CardFish = (props) => {
           </CardFishDataItemText>
         </CardFishDataItem>
         <CardFishDataItem>
-          <img src={avatar} alt='' />
+          <img src={avatar} alt="" />
         </CardFishDataItem>
       </CardFishData>
     </CardFishWrapper>
