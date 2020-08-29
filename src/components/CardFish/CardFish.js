@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import 'moment/locale/hr';
+import 'moment/locale/sr';
 
 import {
   CardFishWrapper,

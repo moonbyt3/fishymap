@@ -5,7 +5,6 @@ import MapView from './components/MapView/MapView';
 import Sidebar from './components/Sidebar/Sidebar';
 import AddFish from './components/AddFish/AddFish';
 import './App.scss';
-import AddBoxIcon from '@material-ui/icons/AddBox';
 
 Parse.initialize(
   'e4X0mA6gyPKujy5nMcZVX3UuUfnyMv3BN0t8RCVX', // Application ID

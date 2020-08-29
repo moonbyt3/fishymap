@@ -16,6 +16,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import CardMedia from '@material-ui/core/CardMedia';
+import UserCatches from '../UserCatches/UserCatches';
 
 const Profile = () => {
   const Auth = useContext(AuthContext);
@@ -44,44 +45,7 @@ const Profile = () => {
               </ProfileCardText>
             </ProfileCard>
           </ProfileWrapper>
-          <Card>
-            <CardHeader
-              avatar={
-                <Avatar
-                  aria-label="recipe"
-                  style={{ background: 'transparent', overflow: 'initial' }}
-                >
-                  <img src={fishIcon} alt="" />
-                </Avatar>
-              }
-              title="Ponton"
-              subheader="14. Jul 2020."
-            />
-            <CardMedia
-              image={fishImage}
-              title="Štuka"
-              style={{ height: '0', paddingTop: '56.25%' }}
-            />
-          </Card>
-          <Card>
-            <CardHeader
-              avatar={
-                <Avatar
-                  aria-label="recipe"
-                  style={{ background: 'transparent', overflow: 'initial' }}
-                >
-                  <img src={fishIcon} alt="" />
-                </Avatar>
-              }
-              title="Ušće Brke i Save"
-              subheader="14. Jul 2020."
-            />
-            <CardMedia
-              image={fishImage}
-              title="Štuka"
-              style={{ height: '0', paddingTop: '56.25%' }}
-            />
-          </Card>
+          <UserCatches />
         </>
       )}
     </>
