@@ -10,7 +10,6 @@ import { SidebarWrapper } from './sidebar.css';
 
 const Sidebar = () => {
   const Auth = useContext(AuthContext);
-
   return (
     <SidebarWrapper>
       <Menu right>

@@ -4,6 +4,9 @@ import Parse from 'parse';
 import MapView from './components/MapView/MapView';
 import Sidebar from './components/Sidebar/Sidebar';
 import AddFish from './components/AddFish/AddFish';
+
+import WarningIcon from './components/WarningIcon/WarningIcon';
+
 import './App.scss';
 
 Parse.initialize(
@@ -17,18 +20,6 @@ let viewport = {
 };
 
 export const AuthContext = React.createContext(null);
-
-//function that gets the location and returns it
-function getLocation() {}
-//function that retrieves the position
-function showPosition(position) {
-  var location = {
-    longitude: position.coords.longitude,
-    latitude: position.coords.latitude,
-  };
-}
-//request for location
-getLocation();
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,7 +49,14 @@ function App() {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, user, setUser, userLocation }}
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        user,
+        setUser,
+        userLocation,
+        setUserLocation,
+      }}
     >
       <div
         className="App"
@@ -67,7 +65,9 @@ function App() {
         }}
       >
         {isLoggedIn && <AddFish />}
-        <Sidebar />
+        {/* If user doesnt allow his geolocation deny it from accessing sidemenu and show warning icon */}
+        {userLocation && <Sidebar />}
+        {!userLocation && <WarningIcon />}
         <MapView />
       </div>
     </AuthContext.Provider>
