@@ -4,10 +4,13 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+    /> -->
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="pragma" content="no-cache" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -35,10 +38,10 @@
     <script>
       window.fbAsyncInit = function () {
         FB.init({
-          appId: "583151385721517",
+          appId: '583151385721517',
           cookie: true,
           xfbml: true,
-          version: "v7.0",
+          version: 'v7.0',
         });
 
         FB.AppEvents.logPageView();
@@ -52,9 +55,9 @@
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        js.src = 'https://connect.facebook.net/en_US/sdk.js';
         fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
+      })(document, 'script', 'facebook-jssdk');
     </script>
     <div id="root"></div>
     <!--

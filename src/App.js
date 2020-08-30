@@ -64,7 +64,7 @@ function App() {
           height: `${viewport.height}px`,
         }}
       >
-        {isLoggedIn && <AddFish />}
+        {isLoggedIn && userLocation && <AddFish />}
         {/* If user doesnt allow his geolocation deny it from accessing sidemenu and show warning icon */}
         {userLocation && <Sidebar />}
         {!userLocation && <WarningIcon />}
