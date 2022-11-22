@@ -19,7 +19,7 @@
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.7.0",
     "react-moment": "^0.9.7",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-swipeable-views": "^0.13.9",
     "styled-components": "^5.1.1"
   },
